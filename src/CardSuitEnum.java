@@ -1,5 +1,5 @@
 
-public enum CardSuitEnum {
+enum CardSuitEnum {
     Hearts(1),
     Spades(2),
     Diamonds(3),

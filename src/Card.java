@@ -6,13 +6,11 @@ public class Card implements CardInterface{
     private final int value [];
 
 
-    public Card(CardSuitEnum cardSuitEnum, Boolean multipleValue, String name,int []value){
+    Card(CardSuitEnum cardSuitEnum, Boolean multipleValue, String name, int[] value){
         this.cardSuitEnum = cardSuitEnum;
         this.name = name;
         this.multipleValue = multipleValue;
         this.value = value;
-
-
     }
 
     @Override

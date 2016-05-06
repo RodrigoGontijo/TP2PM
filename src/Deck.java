@@ -18,10 +18,9 @@ public class Deck {
                 value = dictionary.getKey(name);
                 multipleValue = j == 1;
             }
-            Card card = new Card(CardSuitEnum.valueOf(suit), multipleValue, name, value);
+            Card card = (Card) CardFactory.getCard(CardSuitEnum.valueOf(suit), multipleValue, name, value);
             deck.add(card);
         }
-
 
     }
 
