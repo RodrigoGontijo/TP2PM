@@ -12,6 +12,8 @@ public class Main
         String playerName, playChoice;
         ArrayList<Card> cardsAux;
         Card aux;
+        int championPoints =0 ;
+        ArrayList<String> champion = new ArrayList<String>();
         UserFactory userFactory;
 
         ArrayList<User> Players = new ArrayList<User>();
@@ -37,6 +39,9 @@ public class Main
         //Loop principal
         while(true)
         {
+
+            championPoints =0;
+            champion.clear();
             System.out.print("\n\nEmbaralhando e distribuindo cartas...\n\n");
 
             // IMPLEMENTAR SINGLEDECK.ShuffleDeck()
@@ -92,8 +97,32 @@ public class Main
                 }
             }
 
+            for(User player : Players)
+            {
+                if(player.getHandValue()>championPoints && player.getHandValue() <= 21) {
+                    championPoints = player.getHandValue();
+                    champion.clear();
+                    champion.add(player.getName());
+                }else if(player.getHandValue() == championPoints && player.getHandValue() <= 21){
+                    champion.add(player.getName());
+                }
+            }
+
+
+            if(champion.size() == 1){
+                System.out.println("O vencedor foi " + champion.get(0) + ", com a pontuação de: " + championPoints + "\n");
+            } else if(champion.size() > 1 && championPoints!=0){
+                System.out.println("Houve um empate, os vencedores foram: \n");
+                for(int j = 0 ; j< champion.size() ; j++) {
+                    System.out.println(champion.get(j) + "\n");
+                }
+                System.out.println("Com a pontuação de :" + championPoints + "\n");
+            } else if ( championPoints == 0){
+                System.out.println("Não houve vencedores! \n");
+            }
+
             // FIM DE JOGO
-            // FALTA VERIFICAR E ANUNCIAR O GANHADOR
+
 
             System.out.print("Quer jogar denovo?('y' ou 'n')\n");
             playChoice = new Scanner(System.in).next();
