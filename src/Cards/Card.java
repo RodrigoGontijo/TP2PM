@@ -1,12 +1,13 @@
-public class Card implements CardInterface{
+package Cards;
 
-    private final CardSuitEnum cardSuitEnum;
+public class Card implements CardInterface
+{
+    private final SuitEnum cardSuitEnum;
     private final String name;
     private final Boolean multipleValue;
     private final int value [];
 
-
-    Card(CardSuitEnum cardSuitEnum, Boolean multipleValue, String name, int[] value){
+    Card(SuitEnum cardSuitEnum, Boolean multipleValue, String name, int[] value){
         this.cardSuitEnum = cardSuitEnum;
         this.name = name;
         this.multipleValue = multipleValue;
@@ -14,7 +15,7 @@ public class Card implements CardInterface{
     }
 
     @Override
-    public CardSuitEnum getSuit() {
+    public SuitEnum getSuit() {
         return this.cardSuitEnum;
     }
 
@@ -24,7 +25,7 @@ public class Card implements CardInterface{
     }
 
     @Override
-    public Boolean getMultipleValue() {
+    public Boolean hasMultipleValue() {
         return this.multipleValue;
     }
 

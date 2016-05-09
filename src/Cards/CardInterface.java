@@ -1,9 +1,10 @@
+package Cards;
 
 public interface CardInterface {
 
-    public CardSuitEnum getSuit();
+    public SuitEnum getSuit();
     public String getName();
-    public Boolean getMultipleValue();
+    public Boolean hasMultipleValue();
     public int[] value();
 
 }
